@@ -1,0 +1,125 @@
+body {
+    background: #211611;
+    color: white;
+    margin: auto !important;
+    max-width: 480px !important;
+    font-size: small;
+    font-family: Verdana;
+    line-height: 15px;
+}
+
+#content {
+    padding: 5px 0 0;
+    color: #ffffff;
+    background: #c15b2a;
+}
+
+#content div.content_separator {
+    background: url('/static/images/content_separator.jpg') repeat-x scroll 0 0;
+    height: 9px;
+}
+
+#content .page .header {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#content .block {
+    padding: 4px 8px;
+}
+
+div.page_visitor_index {
+    font-family: Verdana;
+    font-size: small;
+}
+
+
+a {
+    color: #f7c079;
+    text-decoration: none;
+    outline: none;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.navigation {
+    padding: 0;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul.navigation li {
+    border-bottom: 1px solid #D67034;
+    padding: 0;
+}
+
+ul.navigation li:hover {
+    background-color: #e57b48;
+}
+
+ul.navigation li a {
+    display: block;
+    min-height: 33px;
+    font-weight: bold;
+}
+
+ul.navigation li:last-child {
+    border-bottom: medium none !important;
+}
+
+ul.navigation span.body {
+    padding: 8px 5px 5px 10px;
+    display: block;
+    background-image: url('/static/images/icon_arrow.png');
+    background-position: 97% 60%;
+    background-repeat: no-repeat;
+}
+
+img {
+    border: 0;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+ul.navigation span.body img {
+    margin-right: 7px;
+}
+
+
+#footer {
+    background: url('/static/images/footer_back.gif') repeat-x scroll 0 0 #501601;
+    color: #a5531a;
+    height:100%;
+    font-size: smaller;
+    padding-bottom: 8px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+#footer .text {
+    word-spacing: 1px;
+    padding-top: 2px;
+}
+
+#header {
+    text-align: center;
+    background: url('/static/images/header_back.png') repeat scroll 0 0 #560105;
+    padding-top: 5px;
+}
