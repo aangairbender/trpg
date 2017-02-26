@@ -2,9 +2,17 @@
 
 class View
 {
-    //public $template_view; // здесь можно указать общий вид по умолчанию.
+    public $template_view; // здесь можно указать общий вид по умолчанию.
 
-    function generate($content_view, $template_view, $data = null)
+    function __construct($template_view = null)
+    {
+        if($template_view == null)
+            $template_view = "template_view.php";
+        $this->template_view = $template_view;
+    }
+
+
+    function render($data = null, $template_view = null)
     {
 
         if(is_array($data)) {
@@ -12,7 +20,9 @@ class View
             extract($data);
         }
 
+        if($template_view != null)
+            $this->template_view = $template_view;
 
-        include 'application/views/'.$template_view;
+        include 'application/views/'.$this->template_view;
     }
 }

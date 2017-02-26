@@ -3,7 +3,7 @@ class Route
 {
     static function start()
     {
-        $controller_name = 'Main';
+        $controller_name = 'Auth';
         $action_name = 'index';
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
@@ -17,6 +17,10 @@ class Route
         {
             $action_name = $routes[2];
         }
+
+        $params = array();
+        for($i = 3; !empty($routes[$i]); $i++)
+            $params[] = $routes[$i];
 
         $model_name = 'Model_'.$controller_name;
         $controller_name = 'Controller_'.$controller_name;
@@ -47,7 +51,7 @@ class Route
 
         if(method_exists($controller, $action))
         {
-            $controller->$action();
+            $controller->$action($params);
         }
         else
         {
@@ -62,5 +66,12 @@ class Route
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");
         header('Location:'.$host.'404');
+    }
+
+
+    static function redirect($url)
+    {
+        header("Location: " . $url);
+        exit(0);
     }
 }

@@ -12,9 +12,7 @@
 </head>
 <body>
     <div id="header">
-		<a href="/">
-            <span class="title">Восхождение к легенде</span>
-        </a>
+		<span class="title">Восхождение к легенде</span>
     </div>
 	<div class="separator"></div>
     <div id="content">
