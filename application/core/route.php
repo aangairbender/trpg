@@ -1,26 +1,28 @@
 <?php
 class Route
 {
+    static $routes;
+
     static function start()
     {
         $controller_name = 'Auth';
         $action_name = 'index';
 
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
+        Route::$routes = explode('/', $_SERVER['REQUEST_URI']);
 
-        if ( !empty($routes[1]) )
+        if ( !empty(Route::$routes[1]) )
         {
-            $controller_name = $routes[1];
+            $controller_name = Route::$routes[1];
         }
 
-        if ( !empty($routes[2]) )
+        if ( !empty(Route::$routes[2]) )
         {
-            $action_name = $routes[2];
+            $action_name = Route::$routes[2];
         }
 
         $params = array();
-        for($i = 3; !empty($routes[$i]); $i++)
-            $params[] = $routes[$i];
+        for($i = 3; !empty(Route::$routes[$i]); $i++)
+            $params[] = Route::$routes[$i];
 
         $model_name = 'Model_'.$controller_name;
         $controller_name = 'Controller_'.$controller_name;
@@ -71,7 +73,10 @@ class Route
 
     static function redirect($url)
     {
-        header("Location: " . $url);
-        exit(0);
+        if($_SERVER['REQUEST_URI'] != $url)
+        {
+            header("Location: " . $url);
+            exit(0);
+        }
     }
 }

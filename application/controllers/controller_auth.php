@@ -77,4 +77,10 @@ class Controller_Auth extends Controller
 
         $this->view->render($data);
     }
+
+    function action_signout()
+    {
+        $this->model->signout();
+        Route::redirect('/');
+    }
 }

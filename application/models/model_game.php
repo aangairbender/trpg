@@ -18,22 +18,19 @@ class Model_Game extends Model
         $result = $this->db->query("SELECT l.id, l.title FROM locations l INNER JOIN transitions t ON (t.to_id = l.id) WHERE t.from_id='$location_id'");
         while($row = mysqli_fetch_assoc($result))
         {
-            $info['transitions'][] = $row;
+            $info[] = $row;
         }
         return $info;
     }
 
-    public function movePlayer($userId, $locationId)
+    public function getPlayersAtLocation($locationId)
     {
         $info = array();
-        $result = $this->db->query("UPDATE users SET location_id='$locationId' WHERE id='$userId'");
-        if($result === TRUE)
+        $result = $this->db->query("SELECT u.id, u.username FROM users u INNER JOIN player_info p ON(u.id = p.user_id) WHERE p.location_id='$locationId'");
+        while($row = mysqli_fetch_assoc($result))
         {
-            $info['result'] = 1;
-            $_SESSION['location_id'] = $locationId;
+            $info[] = $row;
         }
-        else
-            $info['result'] = 0;
         return $info;
     }
 

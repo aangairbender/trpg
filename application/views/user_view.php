@@ -2,10 +2,7 @@
     <div class="page_visitor">
         <div class="page_visitor_index">
             <div class="header">
-                <h2><?=$title?></h2>
-            </div>
-            <div class="block">
-                <?=$description?>
+                <h2><?=$username?></h2>
             </div>
         </div>
     </div>
@@ -13,28 +10,32 @@
 
 <div class="content_separator"></div>
 <ul class="navigation">
-    <?php foreach ($characters as $t):?>
     <li>
-        <a href="/game/profile/<?=$t['id']?>">
+        <a href="/game/profile/<?=$id?>">
             <span class="body">
                 <span class="icon_sprite icon_travel"></span>
-                <?=$t['username']?>
+                Профиль
             </span>
         </a>
     </li>
-    <?php endforeach; ?>
+    <li>
+        <a href="/game/bag/">
+            <span class="body">
+                <span class="icon_sprite icon_travel"></span>
+                Рюкзак
+            </span>
+        </a>
+    </li>
 </ul>
 
 <div class="content_separator"></div>
 <ul class="navigation">
-    <?php foreach ($transitions as $t):?>
     <li>
-        <a href="/game/goto/<?=$t['id']?>">
+        <a href="/game/">
             <span class="body">
                 <span class="icon_sprite icon_travel"></span>
-                <?=$t['title']?>
+                Назад
             </span>
         </a>
     </li>
-    <?php endforeach; ?>
 </ul>

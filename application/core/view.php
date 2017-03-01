@@ -25,4 +25,10 @@ class View
 
         include 'application/views/'.$this->template_view;
     }
+
+    function widget($name)
+    {
+        $w = new $name();
+        $w->execute();
+    }
 }

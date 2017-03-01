@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Lora');
+@import url('https://fonts.googleapis.com/css?family=Underdog');
+@import url('https://fonts.googleapis.com/css?family=Neucha');
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+
 body {
     background: #211611;
     color: white;
     margin: auto !important;
     max-width: 480px !important;
     font-size: small;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    //font-family: Georgia, 'Times New Roman', Times, serif !important;
+	font-family: 'Verdana';
     line-height: 15px;
+	//Lora
 }
 
 #content {
@@ -29,7 +36,6 @@ body {
 }
 
 div.page_visitor_index {
-    font-family: Verdana;
     font-size: small;
 }
 
@@ -129,9 +135,28 @@ ul.navigation span.body img {
 }
 
 #header span.title {
+    font-family: 'Lora';
 	text-align: center;
 	font-weight: bold;
 	font-size: 15pt;
+}
+
+#header div.info {
+    margin-top: 5px;
+}
+
+#header div.icons {
+    background: url('/static/images/icons_bg.jpg') repeat-x scroll 0 0 transparent;
+    padding: 7px 0 0;
+}
+
+#header div.icons div.body {
+    background: url('/static/images/icons_bg2.jpg') repeat scroll 0 0 #791e01;
+    padding: 2px 5px;
+}
+
+#header .icons span.parameter_info {
+    padding-right: 2px;
 }
 
 form {
@@ -153,7 +178,6 @@ input {
     vertical-align: middle;
     background: #EECF98;
     font-size: small;
-    font-family: Verdana;
 }
 
 input.text, input#captcha {
@@ -182,6 +206,18 @@ select {
     background: url('/static/images/icon_set.png') no-repeat;
 }
 
+.icon_sprite_info_block {
+    background: url('/static/images/icon_set2.png');
+}
+
 .icon_travel {
     background-position: 0 -224px;
+}
+
+.icon_user {
+    background-position: 0 -19px;
+}
+
+.icon_level {
+    background-position: 0 -99px;
 }

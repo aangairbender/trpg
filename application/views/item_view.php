@@ -7,34 +7,34 @@
             <div class="block">
                 <?=$description?>
             </div>
+            <div class="block">
+                Бонусы:
+                <br />
+                <?=$bonuses?>
+            </div>
+            <div class="block">
+                Вес:
+                <br />
+                <?=$size?>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="content_separator"></div>
-<ul class="navigation">
-    <?php foreach ($characters as $t):?>
-    <li>
-        <a href="/game/profile/<?=$t['id']?>">
-            <span class="body">
-                <span class="icon_sprite icon_travel"></span>
-                <?=$t['username']?>
-            </span>
-        </a>
-    </li>
-    <?php endforeach; ?>
-</ul>
+<?php include('/item_actions_view.php') ?>
+
+
+
 
 <div class="content_separator"></div>
 <ul class="navigation">
-    <?php foreach ($transitions as $t):?>
     <li>
-        <a href="/game/goto/<?=$t['id']?>">
+        <a href="/game/">
             <span class="body">
                 <span class="icon_sprite icon_travel"></span>
-                <?=$t['title']?>
+                Назад
             </span>
         </a>
     </li>
-    <?php endforeach; ?>
 </ul>
+

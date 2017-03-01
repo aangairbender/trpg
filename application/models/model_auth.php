@@ -3,6 +3,14 @@
 class Model_Auth extends Model
 {
 
+    private $playerModel;
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->playerModel = new Model_Player();
+    }
+
     public function isUserRegistered($username, $password = '')
     {
         $info = array();
@@ -27,6 +35,8 @@ class Model_Auth extends Model
         return $info;
     }
 
+
+
     public function registerUser($username, $password)
     {
         $info = array();
@@ -40,6 +50,7 @@ class Model_Auth extends Model
             $result2 = $this->db->query("SELECT id FROM users WHERE username='$username'");
             $row = mysqli_fetch_assoc($result2);
             $info['id'] = $row['id'];
+            $this->playerModel->createPlayerInfo($row['id']);
         }
         else
             $info['result'] = 0;
@@ -50,6 +61,8 @@ class Model_Auth extends Model
     {
         if(isset($_SESSION['id']))
             unset($_SESSION['id']);
+        if(isset($_SESSION['username']))
+            unset($_SESSION['username']);
         if(isset($_COOKIE['session_hash']))
             unset($_COOKIE['session_hash']);
 
@@ -57,6 +70,20 @@ class Model_Auth extends Model
 
         if($user_id != null)
             $this->db->query("UPDATE users SET session='' WHERE id='$user_id'");
+    }
+
+    public function isSignedIn()
+    {
+        $info = array();
+        $info['result'] = 0;
+        if(isset($_SESSION['id']) && isset($_COOKIE['session_hash']) && isset($_SESSION['username']))
+        {
+            $result = $this->db->query("SELECT session FROM users WHERE id=" . $_SESSION['id']);
+            $row = mysqli_fetch_assoc($result);
+            if($row['session'] == $_COOKIE['session_hash'])
+                $info['result'] = 1;
+        }
+        return $info;
     }
 
     public function authentificate($user_id)
@@ -70,14 +97,26 @@ class Model_Auth extends Model
         $result = $this->db->query("UPDATE users SET session='$sessionHash' WHERE id='$user_id'");
         if($result === TRUE) {
             $info['result'] = 1;
-            $result2 = $this->db->query("SELECT location_id FROM users WHERE id='$user_id'");
+            $result2 = $this->db->query("SELECT u.username FROM users u JOIN player_info p ON(u.id=p.user_id) WHERE u.id='$user_id'");
             $row2 = mysqli_fetch_assoc($result2);
-            $_SESSION['location_id'] = $row2['location_id'];
+            $_SESSION['username'] = $row2['username'];
         }
         else
             $info['result'] = 0;
         return $info;
 
+    }
+
+
+
+    public function getUserInfo($userId)
+    {
+        $info = array();
+        $result = $this->db->query("SELECT username, session FROM users WHERE id='$userId'");
+        $row = mysqli_fetch_assoc($result);
+        $info['online'] = ($row['session']==""?0:1);
+        $info['username'] = $row['username'];
+        return $info;
     }
 
     private function encryptPassword($password)

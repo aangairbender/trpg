@@ -4,13 +4,13 @@
     <?php endif ?>
     <ul class="block">
         <form method="post">
-            <li>
+            <!--<li>
                 <label for="gender">Пол:</label>
                 <select id="gender" name="gender">
                     <option value="m" selected="selected">Мужской</option>
                     <option value="f">Женский</option>
                 </select>
-            </li>
+            </li>-->
             <li>
                 <label for="username">Логин:</label>
                 <input type="text" class="text" name="username" id="username" size="30">
