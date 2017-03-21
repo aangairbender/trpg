@@ -4,7 +4,10 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
 
 body {
-    background: #211611;
+    background: #000 url('/static/images/body-bg.gif') repeat scroll center top;//#211611;
+    border: 1px solid #2e2e2e;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000;
     color: white;
     margin: auto !important;
     max-width: 480px !important;
@@ -17,8 +20,8 @@ body {
 
 #content {
     padding: 5px 0 0;
-    color: #ffffff;
-    background: #c15b2a;
+    color: #C6C3B7;
+    background: #242424;
 }
 
 #content div.content_separator {
@@ -113,7 +116,7 @@ ul.navigation span.body img {
 }
 
 #footer {
-    background: url('/static/images/footer_back.gif') repeat-x scroll 0 0 #501601;
+    background: url('/static/images/footer_back.gif') repeat-x scroll 0 0 #606060;//#501601;
     color: #a5531a;
     height:100%;
     font-size: smaller;
@@ -128,7 +131,8 @@ ul.navigation span.body img {
 }
 
 #header {
-	
+
+    //background: #242424;
     text-align: center;
     background: url('/static/images/header_back.png') repeat scroll 0 0 #560105;
     padding-top: 5px;
@@ -153,6 +157,7 @@ ul.navigation span.body img {
 #header div.icons div.body {
     background: url('/static/images/icons_bg2.jpg') repeat scroll 0 0 #791e01;
     padding: 2px 5px;
+    text-align: left;
 }
 
 #header .icons span.parameter_info {
@@ -220,4 +225,9 @@ select {
 
 .icon_level {
     background-position: 0 -99px;
+}
+
+
+.icon_mob {
+    background-position: 0 -208px;
 }

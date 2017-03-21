@@ -1,11 +1,11 @@
 <?php foreach ($actions as $a): ?>
 
 <div class="block">
-    <a style="color:lawngreen;"href="/game/itemaction/<?=$a['id']?>"><?=$a['title']?></a>
+    <a style="color:#d8c904;"href="/game/itemaction/<?=$a['id']?>/<?=$real_id?>"><?=$a['title']?></a>
 </div>
 
 <?php endforeach; ?>
 
 <div class="block">
-    <a style="color:darkred;" href="/game/itemdrop/<?=$id?>/1"><strong>Выбросить</strong></a>
+    <a style="color:rgb(234,28,52);" href="/game/itemdrop/<?=$real_id?>/1"><strong>Выбросить</strong></a>
 </div>

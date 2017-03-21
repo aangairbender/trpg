@@ -13,6 +13,20 @@
 
 <div class="content_separator"></div>
 <ul class="navigation">
+    <?php foreach ($mobs as $t):?>
+        <li>
+            <a href="/game/mob/<?=$t['id']?>">
+            <span class="body">
+                <span class="icon_sprite icon_mob"></span>
+                <?=$t['title']?>
+            </span>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+<div class="content_separator"></div>
+<ul class="navigation">
     <?php foreach ($characters as $t):?>
     <li>
         <a href="/game/profile/<?=$t['id']?>">

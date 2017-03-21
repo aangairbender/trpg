@@ -2,15 +2,20 @@
     <div class="page_visitor">
         <div class="page_visitor_index">
             <div class="header">
-                <h2><?=$title?></h2>
+                <h2><?=$this->helper->itemTitle($title, $rarity); ?></h2>
             </div>
             <div class="block">
                 <?=$description?>
             </div>
             <div class="block">
+                Редкость:
+                <br />
+                <?=$this->helper->showRarity($rarity);?>
+            </div>
+            <div class="block">
                 Бонусы:
                 <br />
-                <?=$bonuses?>
+                <?=$this->helper->processBB($bonuses);?>
             </div>
             <div class="block">
                 Вес:
@@ -21,7 +26,10 @@
     </div>
 </div>
 
-<?php include('/item_actions_view.php') ?>
+<?php
+    if($show_actions)
+        include('/item_actions_view.php')
+?>
 
 
 

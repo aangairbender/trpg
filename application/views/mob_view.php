@@ -2,23 +2,23 @@
     <div class="page_visitor">
         <div class="page_visitor_index">
             <div class="header">
-                <h2>Ваш рюкзак</h2>
+                <h2><?=$title?></h2>
             </div>
             <div class="block">
-                Занято: <?=$used . "/" .$capacity?>
+                <?=$description?>
             </div>
+
         </div>
     </div>
 </div>
 
-<div class="content_separator"></div>
-<ul class="block">
-    <?php foreach ($items as $t): ?>
-    <li>
-        <?=$this->helper->itemTitle($t['title'], $t['rarity'], "/game/item/".$t['real_id'],$t['amount']);?>
-    </li>
-    <?php endforeach; ?>
-</ul>
+
+<div class="block">
+    <a style="color:rgb(234,28,52);" href="/game/startpve/<?=$real_id?>"><strong>Атаковать</strong></a>
+</div>
+
+
+
 
 
 <div class="content_separator"></div>
@@ -32,3 +32,4 @@
         </a>
     </li>
 </ul>
+

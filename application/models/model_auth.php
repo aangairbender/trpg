@@ -97,9 +97,10 @@ class Model_Auth extends Model
         $result = $this->db->query("UPDATE users SET session='$sessionHash' WHERE id='$user_id'");
         if($result === TRUE) {
             $info['result'] = 1;
-            $result2 = $this->db->query("SELECT u.username FROM users u JOIN player_info p ON(u.id=p.user_id) WHERE u.id='$user_id'");
+            $result2 = $this->db->query("SELECT u.username,p.location_id FROM users u JOIN player_info p ON(u.id=p.user_id) WHERE u.id='$user_id'");
             $row2 = mysqli_fetch_assoc($result2);
             $_SESSION['username'] = $row2['username'];
+            $_SESSION['location_id'] = $row2['location_id'];
         }
         else
             $info['result'] = 0;

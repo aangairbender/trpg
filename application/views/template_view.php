@@ -19,11 +19,12 @@
 <div id="content">
     <?php include($content_view);?>
 </div>
-<div id="footer">
+<div class="separator"></div>
+<!--<div id="footer">
     <div class="text">
         Верстка от Жеки. Все лева защищены.
     </div>
-</div>
+</div>-->
 
 </body>
 </html>
