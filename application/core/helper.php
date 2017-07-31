@@ -39,7 +39,8 @@ class Helper
 
     public function processBB($s)
     {
-        $s = preg_replace('/\[c=(.*?)\](.*?)\[\/c\]/is','<div style="color: $1;">$2</div>',$s); // colors
+        $s = preg_replace('/\[c=(.*?)\](.*?)\[\/c\]/is','<span style="color: $1;">$2</span>',$s); // colors
+        $s = preg_replace('/\[br\]/is','<br />',$s); // new lines
         return $s;
     }
 

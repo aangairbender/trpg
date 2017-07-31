@@ -7,6 +7,7 @@ class Controller_Game extends Controller
     private $itemModel;
     private $authModel;
     private $mobModel;
+    private $npcModel;
 
     function __construct()
     {
@@ -16,18 +17,18 @@ class Controller_Game extends Controller
         $this->itemModel = new Model_Item();
         $this->authModel = new Model_Auth();
         $this->mobModel = new Model_Mob();
+        $this->npcModel = new Model_Npc();
     }
 
     function action_index()
     {
         $data = array();
         $data['content_view'] = 'location_view.php';
-
-
         $data += $this->model->getLocationInfo($_SESSION['location_id']);
         $data['transitions'] =  $this->model->getLocationTransitions($_SESSION['location_id']);
         $data['characters'] =  $this->model->getPlayersAtLocation($_SESSION['location_id']);
         $data['mobs'] = $this->model->getMobsAtLocation($_SESSION['location_id']);
+        $data['npcs'] = $this->model->getNpcsAtLocation($_SESSION['location_id']);
 
         $this->view->render($data);
     }
@@ -39,6 +40,18 @@ class Controller_Game extends Controller
         $data['content_view'] = 'mob_view.php';
 
         $data += $this->mobModel->getMobInfo($mobId);
+
+        $this->view->render($data);
+    }
+
+    function action_npc($params)
+    {
+        $npcId = $params[0];
+        $data = array();
+        $data['content_view'] = 'npc_view.php';
+
+        $data += $this->npcModel->getNpcInfo($npcId);
+        $data['data'] = $this->npcModel->getNpcData($npcId);
 
         $this->view->render($data);
     }
@@ -114,6 +127,15 @@ class Controller_Game extends Controller
             $data['show_actions'] = 0;
 
         $this->view->render($data);
+    }
+
+    function action_watchitem($params)
+    {
+      $data['content_view'] = 'item_view.php';
+      $itemId = $params[0];
+      $data += $this->itemModel->getItemInfo($itemId);
+      $data['show_actions'] = 0;
+      $this->view->render($data);
     }
 
     function action_itemdrop($params)

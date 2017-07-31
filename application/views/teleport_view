@@ -33,7 +33,7 @@
         </select>
 	</li>
 	<div class="block">
-        <input type="button" value=<?=&action?>>
+        <input type="button" value=<?=$action?>>
     </div>
     <li>
         <a href="/game/">
@@ -44,4 +44,3 @@
         </a>
     </li>
 </ul>
-

@@ -18,7 +18,6 @@ class View
     {
 
         if(is_array($data)) {
-            // преобразуем элементы массива в переменные
             extract($data);
         }
 

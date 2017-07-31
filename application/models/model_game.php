@@ -45,4 +45,15 @@ class Model_Game extends Model
         return $info;
     }
 
+    public function getNpcsAtLocation($locationId)
+    {
+        $info = array();
+        $result = $this->db->query("SELECT id, title FROM npcs WHERE location_id='$locationId'");
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $info[] = $row;
+        }
+        return $info;
+    }
+
 }
